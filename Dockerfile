@@ -16,7 +16,8 @@ RUN \
  sed -i '133,134d;349,350d' '/etc/cont-init.d/03-config.sh' && \
  sed -i -e '5,23s/[*/]complete//' '/tpls/etc/nginx/conf.d/webdav.conf'
 COPY '/root/defaults/.rtorrent.rc' '/tpls/.rtorrent.rc'
-COPY '/root/tpls/etc/cont-init.d/00-customize-download-dir.sh' '/etc/cont-init.d/00-customize-download-dir.sh'
+ADD '/etc/cont-init.d/04-create-services.sh' '/etc/cont-init.d/05-create-services.sh'
+COPY '/root/tpls/etc/cont-init.d/04-customize-download-dir.sh' '/etc/cont-init.d/04-customize-download-dir.sh'
 
 VOLUME [ "/data", "/downloads", "/passwd" ]
 
